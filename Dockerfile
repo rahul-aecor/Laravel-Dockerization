@@ -18,12 +18,13 @@ ENTRYPOINT [ "docker/entrypoint.sh" ]
 
 # ==============================================================================
 #  node
-FROM node:14-alpine as node
+FROM node:16-alpine as node
 
 WORKDIR /var/www
 COPY . .
 
 RUN npm install --global cross-env
 RUN npm install
+RUN chown -R node /var/www/node_modules
 
 VOLUME /var/www/node_modules
