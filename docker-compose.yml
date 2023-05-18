@@ -63,7 +63,8 @@ services:
     # Redis Server
     redis:
         image: redis:alpine
-        command: redis-server --appendonly yes --requirepass  "${REDIS_PASSWORD}"
+        #command: redis-server --appendonly yes --requirepass  "${REDIS_PASSWORD}"
+        command: redis-server --appendonly yes --requirepass  "yourpassword"
         ports:
             - 6379:6379
 
